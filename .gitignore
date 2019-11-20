@@ -1,0 +1,5 @@
+.idea/
+auxil/
+out/
+!out/main.pdf
+*.iml
