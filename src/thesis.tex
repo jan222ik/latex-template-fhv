@@ -1,0 +1,49 @@
+\input{other-pages/title/title-page.tex}
+\newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\input{other-pages/abstracts/abstract.tex}
+\input{other-pages/abstracts/abstractGER.tex}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\newpage
+%Table of contents
+\tableofcontents
+\renewcommand{\thechapter}{\Roman{chapter}}
+\newpage
+
+\setcounter{chapter}{0}
+\addcontentsline{toc}{chapter}{\protect\numberline{I}List Of Abbreviations}
+\chapter*{List Of Abbreviations}
+\clearpage
+\begingroup %Prevent with a group the creation of new pages of \listof<name>
+\let\clearpage\relax
+\addcontentsline{toc}{chapter}{\protect\numberline{II}List Of Figures}
+\listoffigures
+\addcontentsline{toc}{chapter}{\protect\numberline{III}List Of Tables}
+\listoftables
+\addcontentsline{toc}{chapter}{\protect\numberline{IV}List Of Code Fragments}
+\lstlistoflistings
+\endgroup
+\cleardoublepage
+
+%Content
+\renewcommand{\thechapter}{\arabic{chapter}}
+\setcounter{chapter}{0}
+\input{chapters/templateChapter.tex}
+\input{chapters/ipsumChapter.tex}
+
+
+\cleardoublepage
+\renewcommand{\thechapter}{\Roman{chapter}}
+\setcounter{chapter}{3}
+%\pagenumbering{Roman}
+\appendix
+\addcontentsline{toc}{chapter}{\protect\numberline{V}Appendix}
+\chapter*{Appendix}
+%Bibliography
+\setcounter{biburllcpenalty}{7000} %Adds breakpoints in URLs - https://tex.stackexchange.com/questions/134191/line-breaks-of-long-urls-in-biblatex-bibliography
+\setcounter{biburlucpenalty}{8000}
+\addcontentsline{toc}{chapter}{\protect\numberline{VI}Bibliography}
+\printbibliography
+
+%Eigenständigkeitserklärung
+%\input{documents/content/resources/other-pages/6_eidesstatlicheerklaerung.tex}

@@ -1,0 +1,72 @@
+% Preamble
+\documentclass[11pt, twoside]{report}
+
+% Packages
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}                            %Sets fontenc to max level needed in file
+\usepackage{graphicx}                               %To load and display images
+\usepackage{caption}                                %For subfigures and cap env
+\usepackage{subcaption}
+\usepackage[a4paper, width=150mm,                   %Size of Paper
+            top=25mm, bottom=25mm,
+            bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}                               %Header and Footers
+\pagestyle{fancy}                                   %To disable for specific page use \pagestyle{<type>}
+                                                    %<type>: plain for pagenr
+                                                        %    empty for empty pagestyle
+                                                        %    fancy to enable the default syle again
+\fancyhead{}                                        %Resets the header
+\fancyhead[RO,LE]{\chaptername~\thechapter}         %Header Definition: Chaptername and number: Right on Odd and Left on even pages
+\fancyfoot{}                                        %Resets the footer
+\fancyfoot[CE, CO]{\thepage}                        %Centered Page Number on odd and even pages
+%Define output dir, because of error with: https://tex.stackexchange.com/questions/112953/error-when-using-minted-package-and-output-directory-option
+%Cache can be removed normally, but in certain situations it can result in errors. Setup minted see: https://alipourmousavi.com/blog/index.php/2018/02/08/using-minted-package-in-latex-to-format-codes/
+\usepackage[cache=false, outputdir=Z:/Users/jan22/CodeProjects/latex_template/auxil]{minted} %Must be before csquotes
+\setminted{
+    linenos=true,
+    autogobble
+}
+\usepackage[english]{babel}                         %For splitting words
+\usepackage{csquotes}                               %Used for babel/polyglossia and minted
+\usepackage{setspace}                               %Set line spaceing
+\setstretch{1.5}
+\usepackage{amsmath}                                %Math package
+\usepackage{color}                                  %Colored Links
+\usepackage{hyperref}                               %For setting links
+\hypersetup{
+    colorlinks=false,                                %true, if links should be colorful
+    linktoc=all,                                    %all => sections and subsections linked
+    linkcolor=black,                                %Color of link
+}
+\usepackage{listings}                               %Environment for listings
+%\usepackage{eurosym}                               %Euro sign
+%Maybe change back to biber
+\usepackage[style=authoryear,citestyle=authoryear,backend=bibtex]{biblatex}   % Bib
+\addbibresource{main.bib}                           %Set bib file
+
+%FOR minted
+\renewcommand{\MintedPygmentize}{Z:/Users/jan22/AppData/Local/Programs/Python/Python37-32/Scripts/pygmentize} %Set path to script location
+\renewcommand{\theFancyVerbLine}{\sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
+% Create a new environment for breaking code listings across pages.
+%Change lstlisting to figure if code fragments should be listed under figures
+\newenvironment{longlisting}{\captionsetup{type=lstlisting}}{}
+\renewcommand{\lstlistingname}{Code Fragment}       %Sets name of Listing space lstlisting - Will occured before each caption inside its environment
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s} %Sets title for \listoflstlistings
+
+
+
+
+%CUSTOM VARS:
+\newcommand{\submissionDay}{day-of-submission}
+\newcommand{\submissionMonth}{month-of-submission}
+\newcommand{\submissionYear}{year-of-submission}
+\newcommand{\maintitle}{thesis-title}
+\newcommand{\subtile}{thesis-title-addition}
+\newcommand{\name}{author-title-name}
+\newcommand{\supervisor}{supervisor-title-name}
+
+% Document
+\begin{document}
+    \input{thesis.tex}
+\end{document}
