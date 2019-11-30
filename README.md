@@ -21,5 +21,5 @@ To use:
       main.tex
     ```
     
-3. If you use Intellij IDEA you meight want to check out the plugin Texify [Plugin Page](https://plugins.jetbrains.com/plugin/9473-texify-idea)
+3. If you use Intellij IDEA you might want to check out the plugin Texify [Plugin Page](https://plugins.jetbrains.com/plugin/9473-texify-idea)
 Just add -shell-escape --max-print-line=140 to additional cl inputs field.
